@@ -1,0 +1,1101 @@
+{
+  "schemaVersion": 1,
+  "runId": "postal-example",
+  "projectRoot": "examples/postal-diorama",
+  "coordinateSystem": {
+    "up": "Y",
+    "unit": "meter",
+    "unitScale": 1,
+    "front": "+Z",
+    "origin": "center of plinth bottom face",
+    "rotationUnit": "radians",
+    "rotationOrder": "XYZ",
+    "spaces": "All module positions are world-space envelope centers, dimensions are local envelope extents; modules built around local origin. All parent=null. Geometry vertex positions transformed by module transform. Bounds use transformed corners, not dimensions copied after yaw.",
+    "groundY": 0.51
+  },
+  "reference": {
+    "path": "reference/concept_target.png",
+    "actuallyViewed": true,
+    "adopt": "Cream/green/red hierarchy; hipped roof and front clock dormer; right lower wing; framed windows, porch, pillar box and telegraph silhouette.",
+    "simplify": "No masonry cracks, dense roof shingles, extra chimneys or tiny clutter. Use 1–2 broad roof-color strips per plane and a few ridge segments. Dimensions/FOV are estimates anchored by 2m door and 12×9m plinth."
+  },
+  "cameraPresets": {
+    "overview": {
+      "projection": "orthographic",
+      "position": [
+        13,
+        10,
+        16
+      ],
+      "lookAt": [
+        0,
+        2.3,
+        0
+      ],
+      "near": 0.1,
+      "far": 100,
+      "frustum": {
+        "left": -9.72,
+        "right": 9.72,
+        "top": 6.75,
+        "bottom": -6.75
+      },
+      "zoom": 1.14
+    },
+    "closeup": {
+      "projection": "orthographic",
+      "position": [
+        8.5,
+        6.2,
+        14
+      ],
+      "lookAt": [
+        -0.75,
+        2.15,
+        1.55
+      ],
+      "near": 0.1,
+      "far": 100,
+      "frustum": {
+        "left": -5.616,
+        "right": 5.616,
+        "top": 3.9,
+        "bottom": -3.9
+      },
+      "zoom": 1
+    },
+    "lowangle": {
+      "projection": "perspective",
+      "position": [
+        12,
+        5.9,
+        16
+      ],
+      "lookAt": [
+        0,
+        2.6,
+        0
+      ],
+      "near": 0.1,
+      "far": 100,
+      "fov": 43
+    }
+  },
+  "cameraRules": {
+    "wireframeUses": "overview",
+    "viewport": [
+      1440,
+      1000
+    ],
+    "dpr": 1,
+    "resize": "Orthographic preserve vertical span; widen horizontal with aspect. In portrait expand vertical span to preserve scene horizontal width; no cropped plinth.",
+    "controls": {
+      "enablePan": false,
+      "minPolarAngle": 0.436332,
+      "maxPolarAngle": 1.361357,
+      "minDistance": 11,
+      "maxDistance": 36,
+      "minZoom": 0.7,
+      "maxZoom": 1.55
+    },
+    "calibration": "Check projected exact Box3 bounds of all visible modules; default visible plinth margins≥5%, top margin7–12%. Modify frustum/target only if needed and record final camera state in manifest. Lowangle intentionally close to max orbit polar angle."
+  },
+  "materials": {
+    "wall": "#F2D9A3",
+    "trim": "#F5DDB0",
+    "base": "#C69D75",
+    "roof": "#28645C",
+    "roofLight": "#3C7A6E",
+    "roofDark": "#244843",
+    "red": "#C84D3D",
+    "redDark": "#963D32",
+    "stone": "#D9CBB1",
+    "stoneLight": "#E5D9C0",
+    "glass": "#24504C",
+    "glassWarm": "#D3AD68",
+    "ink": "#244843",
+    "brass": "#BE9952",
+    "cream": "#FFF0C9",
+    "wood": "#95633B",
+    "woodDark": "#65472F",
+    "parcel": "#B98C58",
+    "parcelLight": "#D2AC76",
+    "strap": "#80613E",
+    "leaf": "#839B52",
+    "leafLight": "#A8B76A",
+    "leafDark": "#587F4B",
+    "soil": "#A9AA72",
+    "ceramic": "#E8DFC8",
+    "wire": "#514B40"
+  },
+  "modules": [
+    {
+      "id": "plinth",
+      "parent": null,
+      "position": [
+        0,
+        0.25,
+        0
+      ],
+      "dimensions": [
+        12,
+        0.5,
+        9
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "bounds": {
+        "min": [
+          -6,
+          0,
+          -4.5
+        ],
+        "max": [
+          6,
+          0.5,
+          4.5
+        ]
+      },
+      "materials": [
+        "stone",
+        "base"
+      ],
+      "description": "Single horizontal clipped-corner octagonal slab; corner cut .35. Top Y=.5. Edge layers/curb remain inside footprint.",
+      "allowedOverlapWith": [
+        "paving",
+        "landscape",
+        "main_shell",
+        "wing_shell",
+        "porch_platform",
+        "stairs",
+        "mailbox",
+        "cart",
+        "parcels",
+        "bench",
+        "pole_front",
+        "pole_back"
+      ]
+    },
+    {
+      "id": "paving",
+      "parent": null,
+      "position": [
+        0,
+        0.505,
+        0
+      ],
+      "dimensions": [
+        11.8,
+        0.01,
+        8.8
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "bounds": {
+        "min": [
+          -5.9,
+          0.5,
+          -4.4
+        ],
+        "max": [
+          5.9,
+          0.51,
+          4.4
+        ]
+      },
+      "materials": [
+        "stone",
+        "stoneLight"
+      ],
+      "description": "Mostly sand paving, large tile seams as sparse thin geometry; exclude garden polygons. Top Y=.51 is canonical outdoor support.",
+      "allowedOverlapWith": [
+        "plinth",
+        "landscape",
+        "main_shell",
+        "wing_shell",
+        "porch_platform",
+        "stairs",
+        "mailbox",
+        "cart",
+        "parcels",
+        "bench",
+        "pole_front",
+        "pole_back"
+      ]
+    },
+    {
+      "id": "main_shell",
+      "parent": null,
+      "position": [
+        -0.65,
+        2.805,
+        -0.6
+      ],
+      "dimensions": [
+        6.4,
+        4.59,
+        4.3
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "bounds": {
+        "min": [
+          -3.85,
+          0.51,
+          -2.75
+        ],
+        "max": [
+          2.55,
+          5.1,
+          1.55
+        ]
+      },
+      "materials": [
+        "wall",
+        "trim",
+        "base",
+        "roofDark",
+        "glass",
+        "brass"
+      ],
+      "description": "Wall core x[-3.85,2.55], z[-2.75,1.55], y[.51,5.1]. Ground plinth band .35 high, horizontal floor band Y3.02. Front detail may extend into facade module. Side/rear windows required.",
+      "allowedOverlapWith": [
+        "paving",
+        "plinth",
+        "main_roof",
+        "front_facade",
+        "wing_shell",
+        "wing_roof",
+        "porch_platform",
+        "porch_canopy",
+        "landscape"
+      ]
+    },
+    {
+      "id": "main_roof",
+      "parent": null,
+      "position": [
+        -0.65,
+        5.77,
+        -0.6
+      ],
+      "dimensions": [
+        7,
+        1.44,
+        4.9
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "bounds": {
+        "min": [
+          -4.15,
+          5.05,
+          -3.05
+        ],
+        "max": [
+          2.85,
+          6.49,
+          1.85
+        ]
+      },
+      "materials": [
+        "roof",
+        "roofLight",
+        "roofDark",
+        "trim"
+      ],
+      "description": "LOCKED hip roof: eave Y5.15, ridge Y6.43, ridge segment x[-2.2,.9] at z=-.6. Overhang .30 all sides, thickness .10. Four planes, shallow broad seams, sparse rafter blocks. No dense tile field.",
+      "allowedOverlapWith": [
+        "main_shell",
+        "clock_dormer",
+        "front_facade"
+      ]
+    },
+    {
+      "id": "clock_dormer",
+      "parent": null,
+      "position": [
+        -0.65,
+        5.91,
+        1.25
+      ],
+      "dimensions": [
+        1.65,
+        2.08,
+        1.4
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "bounds": {
+        "min": [
+          -1.475,
+          4.87,
+          0.55
+        ],
+        "max": [
+          0.175,
+          6.95,
+          1.95
+        ]
+      },
+      "materials": [
+        "wall",
+        "trim",
+        "roof",
+        "roofDark",
+        "ink",
+        "brass"
+      ],
+      "description": "Compact clock dormer centered on front: wall base Y4.87, circular face center Y5.66 radius .43 at z1.94, gabled green cap apex Y6.95. Envelope top is absolute maximum. Simple hands/ticks, no tall tower.",
+      "allowedOverlapWith": [
+        "main_roof",
+        "main_shell",
+        "front_facade"
+      ]
+    },
+    {
+      "id": "front_facade",
+      "parent": null,
+      "position": [
+        -0.65,
+        2.91,
+        1.69
+      ],
+      "dimensions": [
+        6.4,
+        4.28,
+        0.28
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "bounds": {
+        "min": [
+          -3.85,
+          0.77,
+          1.55
+        ],
+        "max": [
+          2.55,
+          5.05,
+          1.83
+        ]
+      },
+      "materials": [
+        "wall",
+        "trim",
+        "roofDark",
+        "glass",
+        "glassWarm",
+        "ink",
+        "brass"
+      ],
+      "description": "Projecting frames only; front glass faces z1.575. Closed door centered x=-.65, bottom Y=.96, width1.15 height1.97. Ground windows x=-2.65,1.35 centerY1.99 size1.0×1.37; upstairs x=-2.65,-.65,1.35 centerY4.36 size1.02×1.12. Sign x[-2.95,1.65], y[3.31,3.78], frontz1.82. Juniper small separate line within sign if legible. Keep major sign unobstructed.",
+      "allowedOverlapWith": [
+        "main_shell",
+        "main_roof",
+        "clock_dormer",
+        "porch_platform",
+        "porch_canopy",
+        "porch_columns"
+      ]
+    },
+    {
+      "id": "wing_shell",
+      "parent": null,
+      "position": [
+        3.65,
+        1.73,
+        -0.4
+      ],
+      "dimensions": [
+        2.2,
+        2.44,
+        3
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "bounds": {
+        "min": [
+          2.55,
+          0.51,
+          -1.9
+        ],
+        "max": [
+          4.75,
+          2.95,
+          1.1
+        ]
+      },
+      "materials": [
+        "wall",
+        "trim",
+        "base",
+        "roofDark",
+        "glass",
+        "glassWarm",
+        "ink",
+        "brass"
+      ],
+      "description": "Right side single-story wing touches main at x2.55; frontz1.10. Telegraph window at front z1.13 center (3.65,1.63) size1.35×1.18, sillY1.01. TELEGRAPH sign above window at Y2.55. Lamp front-right beside window; attachment to façade purposeful. Window alcove can be layered dark planes, not boolean.",
+      "allowedOverlapWith": [
+        "main_shell",
+        "wing_roof",
+        "paving",
+        "plinth"
+      ]
+    },
+    {
+      "id": "wing_roof",
+      "parent": null,
+      "position": [
+        3.65,
+        3.19,
+        -0.4
+      ],
+      "dimensions": [
+        2.65,
+        0.6,
+        3.4
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "bounds": {
+        "min": [
+          2.325,
+          2.89,
+          -2.1
+        ],
+        "max": [
+          4.975,
+          3.49,
+          1.3
+        ]
+      },
+      "materials": [
+        "roof",
+        "roofLight",
+        "roofDark",
+        "trim"
+      ],
+      "description": "LOCKED single shed roof: high edge x2.325 Y3.49, low edge x4.975 Y2.99; .10 thickness and .20 overhang, no dormer.",
+      "allowedOverlapWith": [
+        "wing_shell",
+        "main_shell"
+      ]
+    },
+    {
+      "id": "porch_platform",
+      "parent": null,
+      "position": [
+        -0.65,
+        0.735,
+        2.1
+      ],
+      "dimensions": [
+        4.4,
+        0.45,
+        1.1
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "bounds": {
+        "min": [
+          -2.85,
+          0.51,
+          1.55
+        ],
+        "max": [
+          1.55,
+          0.96,
+          2.65
+        ]
+      },
+      "materials": [
+        "stone",
+        "base",
+        "trim"
+      ],
+      "description": "Top Y=.96, front edgez2.65 rear edgez1.55. Door threshold equals .96. Recess central entry; parcels must stay off path.",
+      "allowedOverlapWith": [
+        "main_shell",
+        "front_facade",
+        "plinth",
+        "paving",
+        "porch_columns",
+        "stairs"
+      ]
+    },
+    {
+      "id": "stairs",
+      "parent": null,
+      "position": [
+        -0.65,
+        0.735,
+        3.1
+      ],
+      "dimensions": [
+        2.25,
+        0.45,
+        0.9
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "bounds": {
+        "min": [
+          -1.775,
+          0.51,
+          2.65
+        ],
+        "max": [
+          0.475,
+          0.96,
+          3.55
+        ]
+      },
+      "materials": [
+        "stone",
+        "trim"
+      ],
+      "description": "Three .30-deep treads: nearest street z3.25..3.55 topY.66, middlez2.95..3.25 topY.81, topz2.65..2.95 topY.96. All rise from .51. Platform continuous; exact upper extentY.96.",
+      "allowedOverlapWith": [
+        "porch_platform",
+        "paving",
+        "plinth"
+      ]
+    },
+    {
+      "id": "porch_columns",
+      "parent": null,
+      "position": [
+        -0.65,
+        1.975,
+        2.39
+      ],
+      "dimensions": [
+        4.15,
+        2.03,
+        0.42
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "bounds": {
+        "min": [
+          -2.725,
+          0.96,
+          2.18
+        ],
+        "max": [
+          1.425,
+          2.99,
+          2.6
+        ]
+      },
+      "materials": [
+        "roofDark",
+        "trim",
+        "base"
+      ],
+      "description": "Two columns at x=-2.515,+1.215,z2.39, bottomY.96 topY2.99. Pedestal .42×.42, shaft .17×.17. Envelope includes empty space; not a solid collision box.",
+      "allowedOverlapWith": [
+        "porch_platform",
+        "porch_canopy",
+        "front_facade"
+      ]
+    },
+    {
+      "id": "porch_canopy",
+      "parent": null,
+      "position": [
+        -0.65,
+        3.095,
+        2.12
+      ],
+      "dimensions": [
+        4.9,
+        0.35,
+        1.5
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "bounds": {
+        "min": [
+          -3.1,
+          2.92,
+          1.37
+        ],
+        "max": [
+          1.8,
+          3.27,
+          2.87
+        ]
+      },
+      "materials": [
+        "roof",
+        "roofLight",
+        "roofDark",
+        "trim"
+      ],
+      "description": "Shallow shed canopy top rearY3.27 frontY3.07, frontz2.87, backz1.37. Real thickness .10, rafter/bracket silhouette. MaximumY3.27 below sign lowerY3.31.",
+      "allowedOverlapWith": [
+        "main_shell",
+        "front_facade",
+        "porch_columns"
+      ]
+    },
+    {
+      "id": "mailbox",
+      "parent": null,
+      "position": [
+        -3.45,
+        1.365,
+        3.12
+      ],
+      "dimensions": [
+        0.8,
+        1.71,
+        0.8
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "bounds": {
+        "min": [
+          -3.85,
+          0.51,
+          2.72
+        ],
+        "max": [
+          -3.05,
+          2.22,
+          3.52
+        ]
+      },
+      "materials": [
+        "red",
+        "redDark",
+        "brass",
+        "cream",
+        "ink"
+      ],
+      "description": "10-sided pillar box, baseY.51; stepped circular cap, visible +Z slot atY1.75,z3.51; cream envelope relief. Interactive envelope enters slot from +Z. Keep static footprint and all idle geometry in bounds.",
+      "allowedOverlapWith": [
+        "paving",
+        "plinth"
+      ],
+      "contactAnchors": [
+        [
+          -3.45,
+          0.51,
+          3.12
+        ]
+      ],
+      "interaction": "mail"
+    },
+    {
+      "id": "cart",
+      "parent": null,
+      "position": [
+        -4.75,
+        1.075,
+        2.28
+      ],
+      "dimensions": [
+        1.35,
+        1.13,
+        1.25
+      ],
+      "rotation": [
+        0,
+        -0.1,
+        0
+      ],
+      "bounds": {
+        "min": [
+          -5.484024,
+          0.51,
+          1.590735
+        ],
+        "max": [
+          -4.015976,
+          1.64,
+          2.969265
+        ]
+      },
+      "materials": [
+        "wood",
+        "woodDark",
+        "brass",
+        "parcel"
+      ],
+      "description": "Small mail handcart with two wheels and handles; wheel lowestY.51. Tray/parcels low so mailbox remains focal. Bounds include handles, wheels and 3 bundled parcels. Two wheels plus front foot contact ground.",
+      "allowedOverlapWith": [
+        "paving",
+        "plinth"
+      ],
+      "interaction": null
+    },
+    {
+      "id": "parcels",
+      "parent": null,
+      "position": [
+        2.13,
+        0.945,
+        2.72
+      ],
+      "dimensions": [
+        0.82,
+        0.87,
+        0.85
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "bounds": {
+        "min": [
+          1.72,
+          0.51,
+          2.295
+        ],
+        "max": [
+          2.54,
+          1.38,
+          3.145
+        ]
+      },
+      "materials": [
+        "parcel",
+        "parcelLight",
+        "strap"
+      ],
+      "description": "Two stacked parcels by right porch corner, bottomY.51. Together with cart yields 3–5 parcels. Every parcel sits on ground or parcel top. Do not intrude stairs x[-1.775,.475].",
+      "allowedOverlapWith": [
+        "paving",
+        "plinth"
+      ],
+      "contactAnchors": [
+        [
+          2.13,
+          0.51,
+          2.72
+        ]
+      ]
+    },
+    {
+      "id": "bench",
+      "parent": null,
+      "position": [
+        4.02,
+        0.94,
+        2.15
+      ],
+      "dimensions": [
+        1.55,
+        0.86,
+        0.66
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "bounds": {
+        "min": [
+          3.245,
+          0.51,
+          1.82
+        ],
+        "max": [
+          4.795,
+          1.37,
+          2.48
+        ]
+      },
+      "materials": [
+        "wood",
+        "woodDark"
+      ],
+      "description": "Simple warm timber bench facing +Z, four feet atY.51. Chosen instead of freestanding streetlamp; leave clear access to wing window.",
+      "allowedOverlapWith": [
+        "paving",
+        "plinth"
+      ]
+    },
+    {
+      "id": "landscape",
+      "parent": null,
+      "position": [
+        -4.82,
+        2.66,
+        -0.875
+      ],
+      "dimensions": [
+        2.3,
+        4.3,
+        5.05
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "bounds": {
+        "min": [
+          -5.97,
+          0.51,
+          -3.4
+        ],
+        "max": [
+          -3.67,
+          4.81,
+          1.65
+        ]
+      },
+      "materials": [
+        "leaf",
+        "leafLight",
+        "leafDark",
+        "wood",
+        "soil"
+      ],
+      "description": "One faceted tree at(-4.82,.51,-1.9); maxY4.81 so roof stays visible. 4 broad crown lumps radius.6-.85, trunk branching. Rear-left green bed fits x[-5.745,-3.895], z[-3.4,.1]. 3 shrub lumps in bed, optional 1–2 low shrubs elsewhere only with explicit bounds update. Sparse grass from shared instancing. Integration adjustment: actual preview occluded rear tree; tree trunk moves to(-5.05,.51,.5), retaining top4.81 and clear main-wall gap. Landscape envelope rebased; geometry stays within plinth. Tree branches may overhang garden, not cart solids.",
+      "allowedOverlapWith": [
+        "paving",
+        "plinth",
+        "main_shell"
+      ],
+      "contactAnchors": [
+        [
+          -4.82,
+          0.51,
+          -1.9
+        ]
+      ]
+    },
+    {
+      "id": "pole_front",
+      "parent": null,
+      "position": [
+        5.3,
+        3.185,
+        -0.65
+      ],
+      "dimensions": [
+        0.78,
+        5.35,
+        0.54
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "bounds": {
+        "min": [
+          4.91,
+          0.51,
+          -0.92
+        ],
+        "max": [
+          5.69,
+          5.86,
+          -0.38
+        ]
+      },
+      "materials": [
+        "wood",
+        "woodDark",
+        "ceramic",
+        "wire"
+      ],
+      "description": "Front-right telegraph pole baseY.51, topY5.86; shaft10-sided radius.10; two crossarms and cream ceramic insulators. All within plinth; no diagonal brace across signage. Broad envelope includes high crossarm extending over roof envelope; shaft x[5.20,5.40] stays outside roof maximum x4.975, actual crossarm is above roof. This is empty-envelope overlap, not solid intersection.",
+      "allowedOverlapWith": [
+        "paving",
+        "plinth",
+        "wires",
+        "wing_roof"
+      ],
+      "contactAnchors": [
+        [
+          5.3,
+          0.51,
+          -0.65
+        ]
+      ]
+    },
+    {
+      "id": "pole_back",
+      "parent": null,
+      "position": [
+        4.9,
+        3.435,
+        -3.5
+      ],
+      "dimensions": [
+        0.78,
+        5.85,
+        0.54
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "bounds": {
+        "min": [
+          4.51,
+          0.51,
+          -3.77
+        ],
+        "max": [
+          5.29,
+          6.36,
+          -3.23
+        ]
+      },
+      "materials": [
+        "wood",
+        "woodDark",
+        "ceramic",
+        "wire"
+      ],
+      "description": "Back-right telegraph pole baseY.51, topY6.36. Two crossarms/insulators. Height stagger avoids identical silhouette.",
+      "allowedOverlapWith": [
+        "paving",
+        "plinth",
+        "wires"
+      ],
+      "contactAnchors": [
+        [
+          4.9,
+          0.51,
+          -3.5
+        ]
+      ]
+    },
+    {
+      "id": "wires",
+      "parent": null,
+      "position": [
+        4.85,
+        4.4,
+        -1.4
+      ],
+      "dimensions": [
+        1.45,
+        3.56,
+        4.22
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "bounds": {
+        "min": [
+          4.125,
+          2.45,
+          -3.5
+        ],
+        "max": [
+          5.575,
+          6.18,
+          0.75
+        ]
+      },
+      "materials": [
+        "wire",
+        "ceramic",
+        "woodDark"
+      ],
+      "description": "Two thin dark quadratic sagging wires between pole insulators. Existing side lead routes via (5.12,3.22,.65) outside shed eave max x4.975 and terminates at (5.12,2.65,.65) on a cream ceramic receiver and dark bracket attached to wing side x4.75. Receiver below eave, behind front z1.1, clear of TELEGRAPH sign. Wall bracket deliberate attachment; cable has >=.12 eave clearance.",
+      "allowedOverlapWith": [
+        "pole_front",
+        "pole_back",
+        "wing_roof",
+        "wing_shell"
+      ]
+    }
+  ],
+  "overlapPolicy": {
+    "aabbRole": "Broad phase only. Group envelope (columns, tree, wires) contains empty space; AABB overlap is not itself collision evidence.",
+    "allowedReasons": {
+      "plinth": "Ground contact/support embedding ≤.03",
+      "paving": "Thin coplanar support layer, no z-fighting",
+      "main_shell": "Wall-mounted frames/roof/porch deliberately intersect; wing touches right side; landscape envelope near corner only, actual foliage must remain outside wall",
+      "porch_columns": "Connected supports and braces",
+      "wires": "Endpoints on insulators/wing attachment"
+    },
+    "symmetry": "An allow entry from either module is sufficient; precise built mesh/contact evidence remains required.",
+    "forbidden": "Parcel/mailbox/cart/bench solid geometry must not intersect steps, door aperture, each other or wall. Tree actual foliage must not intersect roof. No floating wheels, columns or props.",
+    "contactTolerance": 0.03,
+    "checks": "Lead exports named Box3 and contact-anchor measurements from actual scene. Compare constraints to built geometry; inspect closeup and lowangle. Do not claim handwritten blueprint bounds establish absence of collisions."
+  },
+  "buildingDetails": {
+    "textTextures": "At most 4 CanvasTextures: main sign 2048×256, wing sign1024×256, clock512×512, mailbox emblem256×256 optional; wait document.fonts.ready. Use Georgia/serif or system serif; do not fetch fonts. Visible text is true scene texture geometry.",
+    "batching": "Merged noninteractive meshes grouped by material or instanced shared geometry for tiles, frames, foliage, insulators and rafters. Keep mailbox flap, envelope, telegraph lamp separately addressable. Aim <180 main-render draw calls to leave shadows within350; record renderer.info autoReset policy.",
+    "budget": {
+      "triangles": 100000,
+      "drawCalls": 350,
+      "textures": 8,
+      "maxTextureDimension": 2048,
+      "staticAssetBytes": 10485760
+    }
+  },
+  "runtime": {
+    "seed": 731042,
+    "defaultAnimationTime": 0,
+    "readiness": "document.fonts.ready, generated textures assigned, renderer.compileAsync or compile, first completed render, reject necessary failures.",
+    "interfaces": [
+      "window.sceneReady",
+      "window.setCameraMode(mode)",
+      "window.applyTuningParams(params)",
+      "window.setCaptureState({frozen,time})",
+      "window.getSceneDiagnostics()",
+      "window.triggerMail()",
+      "window.triggerTelegraph()",
+      "window.resetScene()"
+    ],
+    "captureInitialState": "Reset animations, freeze at time0; capture never mid-delivery.",
+    "cleanQuery": "clean=1 hides UI and all debug helpers"
+  }
+}

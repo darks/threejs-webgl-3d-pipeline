@@ -1,0 +1,14 @@
+[
+  {
+    "file": "store.html",
+    "sourceSha256": "a7e7375136b24918be97c5de204f58a441391021c4c791a0c45d2f5960da9b10",
+    "distributedSha256": "3e9a5d238a59376e8f836fb55d5eee98b568339cd049523632b26bfa701ddcca",
+    "change": "Added full bundled Three.js MIT license comment; application code unchanged."
+  },
+  {
+    "file": "london-eye.html",
+    "sourceSha256": "1d31cb8e87e551fd9a25b3b6b0df5799f46e08ade5f6b1d0738835b7af5a5700",
+    "distributedSha256": "ef140cf9456562f01909a988b17dcdc19e97a5060aba2a6abff6952ce182e646",
+    "change": "Added full bundled Three.js MIT license comment; application code unchanged."
+  }
+]

@@ -1,0 +1,228 @@
+{
+  "exposure": 1.05,
+  "backgroundColor": "#DCE5D6",
+  "key": {
+    "color": "#fff6e7",
+    "intensity": 2.25,
+    "position": [
+      -7,
+      12,
+      8
+    ]
+  },
+  "hemisphere": {
+    "skyColor": "#f3f5e8",
+    "groundColor": "#b3a38b",
+    "intensity": 2.2
+  },
+  "fill": {
+    "color": "#dfeaf0",
+    "intensity": 0.95,
+    "position": [
+      7,
+      6,
+      -4
+    ]
+  },
+  "shadow": {
+    "enabled": true,
+    "bias": -0.00015,
+    "normalBias": 0.025,
+    "radius": 3,
+    "mapSize": 2048
+  },
+  "materials": {
+    "wall": {
+      "color": "#F2D9A3",
+      "roughness": 0.88,
+      "metalness": 0
+    },
+    "trim": {
+      "color": "#F5DDB0",
+      "roughness": 0.88,
+      "metalness": 0
+    },
+    "base": {
+      "color": "#C69D75",
+      "roughness": 0.88,
+      "metalness": 0
+    },
+    "roof": {
+      "color": "#28645C",
+      "roughness": 0.88,
+      "metalness": 0
+    },
+    "roofLight": {
+      "color": "#3C7A6E",
+      "roughness": 0.88,
+      "metalness": 0
+    },
+    "roofDark": {
+      "color": "#244843",
+      "roughness": 0.88,
+      "metalness": 0
+    },
+    "red": {
+      "color": "#C84D3D",
+      "roughness": 0.88,
+      "metalness": 0
+    },
+    "redDark": {
+      "color": "#963D32",
+      "roughness": 0.88,
+      "metalness": 0
+    },
+    "stone": {
+      "color": "#D9CBB1",
+      "roughness": 0.88,
+      "metalness": 0
+    },
+    "stoneLight": {
+      "color": "#E5D9C0",
+      "roughness": 0.88,
+      "metalness": 0
+    },
+    "glass": {
+      "color": "#24504C",
+      "roughness": 0.88,
+      "metalness": 0
+    },
+    "glassWarm": {
+      "color": "#D3AD68",
+      "roughness": 0.88,
+      "metalness": 0
+    },
+    "ink": {
+      "color": "#244843",
+      "roughness": 0.88,
+      "metalness": 0
+    },
+    "brass": {
+      "color": "#BE9952",
+      "roughness": 0.88,
+      "metalness": 0.25
+    },
+    "cream": {
+      "color": "#FFF0C9",
+      "roughness": 0.88,
+      "metalness": 0
+    },
+    "wood": {
+      "color": "#95633B",
+      "roughness": 0.88,
+      "metalness": 0
+    },
+    "woodDark": {
+      "color": "#65472F",
+      "roughness": 0.88,
+      "metalness": 0
+    },
+    "parcel": {
+      "color": "#B98C58",
+      "roughness": 0.88,
+      "metalness": 0
+    },
+    "parcelLight": {
+      "color": "#D2AC76",
+      "roughness": 0.88,
+      "metalness": 0
+    },
+    "strap": {
+      "color": "#80613E",
+      "roughness": 0.88,
+      "metalness": 0
+    },
+    "leaf": {
+      "color": "#839B52",
+      "roughness": 0.88,
+      "metalness": 0
+    },
+    "leafLight": {
+      "color": "#A8B76A",
+      "roughness": 0.88,
+      "metalness": 0
+    },
+    "leafDark": {
+      "color": "#587F4B",
+      "roughness": 0.88,
+      "metalness": 0
+    },
+    "soil": {
+      "color": "#A9AA72",
+      "roughness": 0.88,
+      "metalness": 0
+    },
+    "ceramic": {
+      "color": "#E8DFC8",
+      "roughness": 0.88,
+      "metalness": 0
+    },
+    "wire": {
+      "color": "#514B40",
+      "roughness": 0.88,
+      "metalness": 0
+    }
+  },
+  "cameras": {
+    "overview": {
+      "projection": "orthographic",
+      "position": [
+        13,
+        10,
+        16
+      ],
+      "lookAt": [
+        0,
+        2.3,
+        0
+      ],
+      "near": 0.1,
+      "far": 100,
+      "frustum": {
+        "left": -9.72,
+        "right": 9.72,
+        "top": 6.75,
+        "bottom": -6.75
+      },
+      "zoom": 1.14
+    },
+    "closeup": {
+      "projection": "orthographic",
+      "position": [
+        8.5,
+        6.2,
+        14
+      ],
+      "lookAt": [
+        -0.75,
+        2.15,
+        1.55
+      ],
+      "near": 0.1,
+      "far": 100,
+      "frustum": {
+        "left": -5.616,
+        "right": 5.616,
+        "top": 3.9,
+        "bottom": -3.9
+      },
+      "zoom": 1
+    },
+    "lowangle": {
+      "projection": "perspective",
+      "position": [
+        12,
+        5.9,
+        16
+      ],
+      "lookAt": [
+        0,
+        2.6,
+        0
+      ],
+      "near": 0.1,
+      "far": 100,
+      "fov": 43
+    }
+  }
+}
