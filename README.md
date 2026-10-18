@@ -1,40 +1,44 @@
 # Three.js / WebGL 3D Pipeline
 
-用六阶段、多 Agent 协作，把场景描述变成可运行、可交互、经过截图评审的 Three.js 作品。
+**English** | [简体中文](README.zh-CN.md)
 
-这是一个 **AI 编程技能和示例仓库**，不是 Three.js 渲染引擎、在线生图服务或一键模型生成 API。技能定义需求讨论、空间蓝图、模块开发、独立评审、灯光比较、材质精修和模型导出流程。
+Turn a scene description into a working, interactive Three.js experience through a six-stage workflow with multiple agents and screenshot-based review.
 
-[安装技能](docs/installation.md) · [使用说明](docs/usage.md) · [示例说明](examples/README.md) · [参与贡献](CONTRIBUTING.md)
+This repository contains an **AI coding skill and example projects**. It is not a rendering engine, hosted image-generation service, or one-click model-generation API. The skill covers requirements, spatial blueprints, modular development, independent review, lighting comparisons, material refinement, and model export.
 
-## 三个 Demo
+[Install the skill](docs/installation.md) · [Usage guide](docs/usage.md) · [Examples](examples/README.md) · [Contributing](CONTRIBUTING.md)
 
-| 示例 | 预览 | 内容 | 形态 |
+The detailed guides linked above and the skill instructions are currently written in Chinese. This README provides the English overview, installation steps, usage example, and validation commands.
+
+## Three demos
+
+| Demo | Preview | Features | Format |
 | --- | --- | --- | --- |
-| [Juniper 邮电局](examples/postal.html) | ![邮电局](docs/images/postal.png) | 低多边形建筑、投信、电报灯、机位和线框 | 独立 HTML + [模块源码](examples/postal-diorama/) |
-| [Maple & Co. 街角百货](examples/store.html) | ![百货店](docs/images/store.png) | 日夜切换、商品部门介绍、街角视角 | 内嵌 Three.js 的独立 HTML |
-| [London Eye 河畔微缩景观](examples/london-eye.html) | ![伦敦眼](docs/images/london-eye.png) | 摩天轮旋转/暂停、河岸场景、机位和线框 | 内嵌 Three.js 的独立 HTML |
+| [Juniper Post & Telegraph](examples/postal.html) | ![Post office](docs/images/postal.png) | Low-poly architecture, mail delivery, telegraph light, camera presets, and wireframe | Standalone HTML + [modular source](examples/postal-diorama/) |
+| [Maple & Co. Department Store](examples/store.html) | ![Department store](docs/images/store.png) | Day/night toggle, department information, and street-corner views | Standalone HTML with embedded Three.js |
+| [London Eye Riverside Miniature](examples/london-eye.html) | ![London Eye](docs/images/london-eye.png) | Rotating and pausable observation wheel, riverside scene, camera presets, and wireframe | Standalone HTML with embedded Three.js |
 
-截图来自实际浏览器渲染。三个示例现在都提供独立 HTML，下载后即可用浏览器打开，不需要安装 Node.js 或启动服务器。
+These screenshots are actual browser renders. All three demos are available as standalone HTML files: download one and open it in a browser, with no Node.js installation or local server required.
 
-**在 GitHub 上**，表格链接打开的是 HTML 文件页；请下载原始文件并保存为 `.html` 后打开。GitHub 文件页本身不会执行页面。运行下方命令则可从本地首页直接进入三个 Demo。
+**On GitHub**, the links in the table open HTML source-file pages. Download the raw file, save it with the `.html` extension, and open it locally. GitHub's file viewer does not execute the page. Alternatively, run the local gallery using the commands below to access all three demos.
 
-## 本地运行示例
+## Run the examples locally
 
-克隆仓库（也可以下载 ZIP 并解压）：
+Clone the repository, or download and extract its ZIP archive:
 
 ```sh
 git clone https://github.com/darks/threejs-webgl-3d-pipeline.git
 cd threejs-webgl-3d-pipeline
 ```
 
-需要 **Node.js 22.12+** 和支持 WebGL 的现代浏览器。在仓库根目录执行：
+For development, use **Node.js 22.12+** and a modern browser with WebGL support. From the repository root:
 
 ```sh
 npm ci
 npm run dev
 ```
 
-打开终端显示的本地地址，默认 `http://127.0.0.1:5173/`。也可直接打开 `examples/postal.html`、`examples/store.html` 或 `examples/london-eye.html`。其中邮电局独立版由模块源码自动打包；编辑模块源码后，运行 `npm run build:postal` 更新独立版。
+Open the local URL printed in the terminal, usually `http://127.0.0.1:5173/`. You can also open `examples/postal.html`, `examples/store.html`, or `examples/london-eye.html` directly. The standalone postal demo is generated from its modular source; after editing that source, run `npm run build:postal` to refresh the standalone file.
 
 ```sh
 npm run check
@@ -42,44 +46,45 @@ npm run build
 npm run preview
 ```
 
-构建结果在 `dist/`，包含总览和全部三个示例，使用相对资源路径，可部署到静态站点子目录。启动 preview 后打开终端地址。仓库不自动发布站点。
+The `dist/` directory contains the gallery and all three demos. Relative asset paths allow deployment under a static site's subdirectory. Open the URL printed by the preview server. This repository does not publish the site automatically.
 
-## 安装技能
+## Install the skill
 
-安装技能本身不需要 `npm ci`。有 Node.js 时，在本仓库根目录运行：
+Installing the skill itself does not require `npm ci`. With Node.js available, run this command from the repository root:
 
 ```sh
 node scripts/install-skill.mjs
 ```
 
-默认安装到 `$CODEX_HOME/skills/threejs-webgl-3d-pipeline`；未设置 `CODEX_HOME` 时使用 `~/.codex/skills/threejs-webgl-3d-pipeline`。已有同名目录时停止，避免覆盖个人修改。也可以完整复制 [skills/threejs-webgl-3d-pipeline](skills/threejs-webgl-3d-pipeline) 文件夹。详见 [安装说明](docs/installation.md)。
+The default destination is `$CODEX_HOME/skills/threejs-webgl-3d-pipeline`, or `~/.codex/skills/threejs-webgl-3d-pipeline` when `CODEX_HOME` is unset. If that directory already exists, the installer stops rather than overwriting your changes. You can also copy the entire [skills/threejs-webgl-3d-pipeline](skills/threejs-webgl-3d-pipeline) folder manually. See the [installation guide](docs/installation.md) for additional options.
 
-使用示例：
+Example prompt:
 
 ```text
-$threejs-webgl-3d-pipeline 制作一个欧美低多边形卡通风的邮电局。
-所有产出放在一个新的独立目录，支持旋转、缩放、投信和电报灯互动。
+$threejs-webgl-3d-pipeline Create a Western-style, low-poly cartoon post office.
+Put all outputs in a new, dedicated directory. Support orbiting, zooming,
+mail delivery, and an interactive telegraph light.
 ```
 
-## 工作流程
+## Workflow
 
-1. **需求与概念**：Producer 与 Director 独立讨论，形成 SPEC 和视觉基准。
-2. **空间蓝图**：Architect 明确坐标、尺度、相机、模块和接触关系。
-3. **构建与导出**：Lead_Dev 委派模块开发，建立交互、参数、OBJ/GLB 导出和四视图捕获。
-4. **独立评审**：新的只读 Critic 实际看图，检查几何、布局、光影与风格。
-5. **灯光比较**：相同机位、种子和时刻比较候选，保留参数和选择依据。
-6. **材质精修**：保存可恢复版本，对照目标图改进，再检查、截图与独立复核。
+1. **Requirements and concept:** Separate Producer and Director agents discuss the brief and establish a SPEC and visual reference.
+2. **Spatial blueprint:** An Architect defines coordinates, scale, cameras, modules, and contact relationships.
+3. **Implementation and export:** A Lead_Dev delegates module development and integrates interactions, tuning parameters, OBJ/GLB export, and four-view capture.
+4. **Independent review:** A fresh, read-only Critic actually inspects the images and evaluates geometry, layout, lighting, and style.
+5. **Lighting comparison:** Candidates use the same cameras, seed, and animation time. Parameter snapshots and selection rationale are retained.
+6. **Material refinement:** A recoverable version is saved before comparing against a target image, making improvements, and repeating checks, captures, and independent review.
 
-视觉门槛为四项算术均分至少 9.0、没有 blocker/major，并且工程检查通过。评分是记录评审依据的方式，不是客观质量保证。完整规则和预算以 [SKILL.md](skills/threejs-webgl-3d-pipeline/SKILL.md) 与 [执行契约](skills/threejs-webgl-3d-pipeline/references/execution-contract.md) 为准。
+The visual gate requires an arithmetic mean of at least 9.0 across the four scores, no unresolved blocker or major issues, and passing engineering checks. Scores document review judgments; they are not an objective quality guarantee. The authoritative rules and iteration budgets are in [SKILL.md](skills/threejs-webgl-3d-pipeline/SKILL.md) and the [execution contract](skills/threejs-webgl-3d-pipeline/references/execution-contract.md).
 
-## 能力边界
+## Capabilities and limitations
 
-- 完整管线需要宿主支持独立 Agent 上下文、文件/命令操作、浏览器自动化和实际图像查看。仅有文本聊天不能完成全部验收。图像生成是可选能力，缺失时需记录降级。
-- 新版技能默认要求 HTML 单页提供 **GLB / OBJ 导出**，并验证下载和重新载入。**这三个现有展示示例尚未实现导出按钮**，用于展示场景、交互和组织方式，不应当作最新契约全部通过的模板。
-- 商店与伦敦眼独立 HTML 含压缩后的应用和 Three.js，本仓库没有它们的模块源文件或原始打包工程。邮电局同时提供模块源码和可重新生成的独立版。
-- 技能要求的软件、模型调用和浏览器环境由使用者提供。性能取决于设备；本仓库不沿用原制作设备的历史性能数值作为你的运行结果。
+- The complete pipeline requires a host with isolated agent contexts, filesystem and command execution, browser automation, and actual image viewing. A text-only chat cannot complete all acceptance checks. Image generation is optional; unavailable capabilities must be documented.
+- The updated skill requires **GLB / OBJ export** controls on the delivered HTML page, with download and reload verification. **The three existing showcase demos do not yet include export buttons.** They demonstrate scenes, interactions, and project organization, rather than full compliance with every requirement in the latest contract.
+- The store and London Eye HTML files contain minified application code and Three.js. Their original modular source projects are not included. The postal example includes both editable modules and a reproducible standalone build.
+- Users provide the software, model access, and browser environment required by the skill. Performance depends on the device; measurements from the original production machine are not presented as results for your environment.
 
-## 验证
+## Validation
 
 ```sh
 npx playwright install chromium
@@ -88,21 +93,21 @@ npm run test:smoke
 npm run test:standalone
 ```
 
-检查脚本会启动临时预览服务，验证三个示例的加载、机位、基础交互与移动视口，保存截图和结果到忽略版本控制的 `artifacts/smoke/`。可用 `CHROMIUM_PATH` 指向已有 Chromium。此检查是发布包冒烟验证，不等于重新执行六阶段创作评审。详情见 [测试说明](docs/testing.md)。
+The smoke test starts a temporary preview server and checks loading, camera presets, basic interactions, and mobile viewports for the three demos. Screenshots and results are written to the Git-ignored `artifacts/smoke/` directory. Set `CHROMIUM_PATH` to use an existing Chromium executable. These are package smoke tests, not a new run of the six-stage creative review process. See the [testing guide](docs/testing.md) for details.
 
-## 目录
+## Repository layout
 
 ```text
-skills/threejs-webgl-3d-pipeline/   可安装技能与执行契约
-examples/postal.html              邮电局独立 HTML（从模块源码生成）
-examples/postal-diorama/           邮电局模块源码、参数、规格与检查脚本
-examples/store.html               百货店独立 HTML
-examples/london-eye.html          伦敦眼独立 HTML
-docs/                            安装、使用、测试说明与实际截图
-scripts/                         安装、包检查、浏览器冒烟验证
-index.html                       三个示例的总览入口
+skills/threejs-webgl-3d-pipeline/   Installable skill and execution contract
+examples/postal.html              Standalone postal HTML, generated from modules
+examples/postal-diorama/          Postal source, parameters, specs, and checks
+examples/store.html              Standalone department-store HTML
+examples/london-eye.html         Standalone London Eye HTML
+docs/                           Installation, usage, testing, and screenshots
+scripts/                        Installation, package checks, and browser tests
+index.html                      Gallery linking to all three demos
 ```
 
-## 许可证
+## License
 
-项目原创代码、技能文档和示例内容使用 [MIT](LICENSE)。内嵌及依赖的 Three.js 保留其 MIT 版权声明，见 [第三方说明](THIRD_PARTY_NOTICES.md)。截图仅用于展示本仓库示例；示例中的名称、地点和文字不表示与现实机构存在关联。
+Original project code, skill documentation, and example content are released under the [MIT License](LICENSE). Bundled and imported Three.js code retains its MIT copyright notices; see [third-party notices](THIRD_PARTY_NOTICES.md). Screenshots illustrate the examples in this repository. Names, locations, and text in the demos do not imply affiliation with real-world organizations.

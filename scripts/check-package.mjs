@@ -21,7 +21,7 @@ for (const entry of JSON.parse(fs.readFileSync('examples/provenance.json','utf8'
   assert.match(data.toString(), /Permission is hereby granted/);
   assert.ok(!/<(?:script|img|link)\b[^>]*(?:src|href)=["']https?:/i.test(data.toString()), 'Unexpected remote resource');
 }
-const documents = ['README.md','CONTRIBUTING.md','THIRD_PARTY_NOTICES.md','docs/installation.md','docs/usage.md','docs/testing.md','examples/README.md'];
+const documents = ['README.md','README.zh-CN.md','CONTRIBUTING.md','THIRD_PARTY_NOTICES.md','docs/installation.md','docs/usage.md','docs/testing.md','examples/README.md'];
 for (const doc of documents) {
   const text = fs.readFileSync(doc, 'utf8');
   for (const [,target] of text.matchAll(/\]\(([^)]+)\)/g)) {
